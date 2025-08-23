@@ -126,9 +126,10 @@ SmartShop is a modern, cross-platform e-commerce mobile application built with *
 
 **Dalia Ramadan**
 
-- LinkedIn: Dalia Ramadan Ahmed
+- LinkedIn: (Dalia Ramadan Ahmed)[https://www.linkedin.com/in/dalia-ramadan-ahmed-435912252/]
 
 ---
 
 Happy Shopping with **SmartShop**! 🛍️
+
 
