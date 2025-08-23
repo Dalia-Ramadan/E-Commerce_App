@@ -125,16 +125,26 @@ SmartShop is a modern, cross-platform e-commerce mobile application built with *
 ## 🖼️ Screenshots
 
 | Splash Screen | Welcome Screen | Sign In | Sign Up |
-| --- | --- | --- | --- |
+| ![photo_7_2025-08-23_03-37-42](https://github.com/user-attachments/assets/a48426b3-f8b9-41df-8eac-cf4541e74cd7)
+ | ![photo_8_2025-08-23_03-37-42](https://github.com/user-attachments/assets/dced82af-9d17-43ca-9166-0e4fa545232c)
+ | ![photo_9_2025-08-23_03-37-42](https://github.com/user-attachments/assets/ee289cdf-4457-447d-9ed3-7a6654443339)
+ | ![photo_1_2025-08-23_03-37-42](https://github.com/user-attachments/assets/f258228c-2b65-4111-829a-3acfc66e9b47)
+ |
 |  |  |  |  |
 
 | Home Screen | Add Product | Product Details | Profile |
-| --- | --- | --- | --- |
+| ![photo_6_2025-08-23_03-37-42](https://github.com/user-attachments/assets/66a0f652-edb9-4adf-8e5c-65b407b87b01)
+ | ![photo_2_2025-08-23_03-37-42](https://github.com/user-attachments/assets/321d382f-1979-4a20-aebe-2af49c5c25ec)
+ | ![photo_2025-08-23_04-06-42](https://github.com/user-attachments/assets/87f7c65e-a0cf-42c7-ac45-f8f820a223ba)
+ | ![photo_3_2025-08-23_03-37-42](https://github.com/user-attachments/assets/e311492d-71a6-4cf3-a23a-16ca4533a80f)
+ |
 |  |  |  |  |
 
-| Additional View |
-| --- |
-|  |
+| Menu | Additional View |
+| ![photo_4_2025-08-23_03-37-42](https://github.com/user-attachments/assets/ea0ef985-8b26-4e79-ba36-0e5d00fd2968)
+ | ![photo_5_2025-08-23_03-37-42](https://github.com/user-attachments/assets/f82578d6-0ce4-4f70-85b3-5b72bfeaca83)
+ |
+|  |  |
 
 ---
 
