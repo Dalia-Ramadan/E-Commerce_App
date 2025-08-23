@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "806387532823",
+    "project_id": "e-commerce-graduationapp",
+    "storage_bucket": "e-commerce-graduationapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806387532823:android:3f452c3a24995c5e448852",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX8NMswXIjJyN2oO4jCJ1_4F7f-i7wcF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

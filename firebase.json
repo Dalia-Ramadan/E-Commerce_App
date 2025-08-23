@@ -1,0 +1,34 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "e-commerce-graduationapp",
+          "appId": "1:806387532823:android:3f452c3a24995c5e448852",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "e-commerce-graduationapp",
+          "configurations": {
+            "android": "1:806387532823:android:3f452c3a24995c5e448852",
+            "ios": "1:806387532823:ios:224f6c45a0d75cb2448852",
+            "macos": "1:806387532823:ios:224f6c45a0d75cb2448852",
+            "web": "1:806387532823:web:e35b0e85a961e710448852",
+            "windows": "1:806387532823:web:3f3fc56480f3967c448852"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "nam5",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
