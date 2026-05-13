@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:e_commerce_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomProductCard extends StatelessWidget {
@@ -18,62 +17,85 @@ class CustomProductCard extends StatelessWidget {
 
   Widget buildCardImage(String? base64Image) {
     if (base64Image == null || base64Image.isEmpty) {
-      return const Icon(Icons.image, size: 80, color: Colors.grey);
+      return Container(
+        height: 160,
+        color: const Color(0xFFF5F5F5),
+        child: const Center(
+          child: Icon(Icons.image, size: 60, color: Colors.grey),
+        ),
+      );
     }
     try {
       return Image.memory(
         base64Decode(base64Image),
-        fit: BoxFit.contain,
-        height: 120,
+        fit: BoxFit.cover,
+        height: 160,
         width: double.infinity,
         gaplessPlayback: true,
-        errorBuilder: (context, error, stackTrace) {
-          return const Icon(Icons.broken_image, size: 80, color: Colors.grey);
-        },
+        errorBuilder: (context, error, stackTrace) => Container(
+          height: 160,
+          color: const Color(0xFFF5F5F5),
+          child: const Center(
+            child: Icon(Icons.broken_image, size: 60, color: Colors.grey),
+          ),
+        ),
       );
     } catch (e) {
-      return const Icon(Icons.broken_image, size: 80, color: Colors.grey);
+      return Container(
+        height: 160,
+        color: const Color(0xFFF5F5F5),
+        child: const Center(
+          child: Icon(Icons.broken_image, size: 60, color: Colors.grey),
+        ),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(20),
-      child: Card(
-        elevation: 3,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFFF5F5F5),
+          borderRadius: BorderRadius.circular(16),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Image
             ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
               child: buildCardImage(imageBase64),
             ),
+            // Info
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     name,
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 4),
                   Text(
-                    "\$${price.toStringAsFixed(2)}",
-                    style: const TextStyle(fontSize: 16, color: Colors.green),
+                    '${price.toStringAsFixed(2)}\$',
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color: Color(0xFF2E7D32),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 5.0,right: 5.0),
-              child: CustomButton(onPressed: onTap ?? () {}, text: 'add to card',),
-            )
           ],
         ),
       ),

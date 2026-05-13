@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/screens/welcome_screen.dart';
-import 'package:e_commerce_app/widgets/custom_gap.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -28,35 +27,38 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Image.asset(
-                'assets/images/splash.png',
-                fit: BoxFit.cover,
-                width: double.infinity,
-              ),
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: Image.asset(
+              'assets/images/splash.png',
+              fit: BoxFit.cover,
+              width: double.infinity,
             ),
-            const CustomGap(h: 27),
-            Text(
-              'SmartShop',
-              style: theme.textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          ),
+          const SizedBox(height: 30),
+          const Text(
+            'Smart Shop',
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              letterSpacing: 1,
             ),
-            const CustomGap(h: 20),
-            const CircularProgressIndicator(
+          ),
+          const SizedBox(height: 20),
+          const SizedBox(
+            width: 30,
+            height: 30,
+            child: CircularProgressIndicator(
               color: Colors.blue,
-              strokeWidth: 4,
+              strokeWidth: 3,
             ),
-            const CustomGap(h: 40),
-          ],
-        ),
+          ),
+          const SizedBox(height: 50),
+        ],
       ),
     );
   }
