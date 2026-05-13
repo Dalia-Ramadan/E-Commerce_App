@@ -1,59 +1,91 @@
-# SmartShop - E-Commerce Flutter App 🛍️
+# SmartShop - E-Commerce Flutter App
 
 ## 📖 Overview
-
-SmartShop is a modern, cross-platform e-commerce mobile application built with **Flutter** and **Firebase**. It provides a seamless shopping experience, allowing users to browse products, add new products, and manage their profiles through an intuitive and responsive user interface. The app supports secure user authentication, efficient image uploads with compression, and real-time data synchronization.
+SmartShop is a modern e-commerce application built with **Flutter** and **Firebase**. It allows users to browse and search products, manage their cart, upload new products, and customize their profile — all with a clean and intuitive UI.
 
 ---
 
 ## ✨ Features
 
-- **User Authentication**: Secure sign-up and sign-in using Firebase Authentication (Email/Password).
-- **Product Management**: Add, view, and sort products by name or price.
-- **Image Upload**: Upload product images from gallery or camera with compression (max 500KB).
-- **Responsive UI**: Clean, user-friendly interface with custom widgets for text fields, buttons, and product cards.
-- **Real-time Data**: Powered by Firebase Firestore for real-time product data syncing.
-- **Profile Management**: View user details and sign out securely.
-- **Splash & Welcome Screens**: Engaging onboarding with a splash screen and welcome page.
+### 🔐 Authentication
+- Sign up with name, email, and password
+- Sign in with existing credentials via Firebase Authentication
+- Secure sign out from the profile screen
+
+### 🛍️ Product Management
+- Browse all products in a responsive grid view
+- Real-time product syncing via Firebase Firestore
+- Add new products with name, price, description, and image
+- Product images compressed and stored as Base64 in Firestore (max 500KB)
+
+### 🔍 Search
+- Search products by name in real-time
+- Results update instantly as you type
+
+### 🛒 Cart
+- Add products to cart from the product details screen
+- Increment or decrement item quantity
+- Remove items automatically when quantity reaches zero
+- Checkout clears the cart with a confirmation message
+- Continue shopping navigates back to the home screen
+
+### 👤 Profile
+- View display name, email, and member since date
+- **Upload and update profile picture** from gallery (stored in Firestore)
+- Profile picture persists across sessions
+- Sign out securely
+
+### 🎨 UI / UX
+- Splash screen with 3-second delay before onboarding
+- Welcome screen with Sign Up and Log In options
+- Custom reusable widgets: buttons, text fields, product cards, bottom navbar, gap
+- Consistent bottom navigation bar across all main screens
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Flutter**: Cross-platform mobile app development framework.
-- **Firebase Authentication**: Secure user authentication.
-- **Firebase Firestore**: Real-time database for product storage.
-- **Image Picker**: Select images from gallery or camera.
-- **Flutter Image Compress**: Optimize image storage with compression.
-- **Dotted Border**: Stylish UI elements for enhanced design.
-- **Dart**: Programming language for Flutter.
+| Technology | Purpose |
+|---|---|
+| Flutter | Cross-platform UI framework |
+| Firebase Authentication | User sign-up & sign-in |
+| Firebase Firestore | Real-time database for products & user profiles |
+| Image Picker | Select images from gallery |
+| Dart | Programming language |
 
 ---
 
 ## 📂 Project Structure
 
 ```
+smartshop/
 ├── assets/
-│   ├── images/
-│   │   ├── splash.png
-│   │   ├── welcome.png
+│   └── images/
+│       ├── splash.png
+│       └── welcome.png
 ├── lib/
+│   ├── firebase_options.dart
+│   ├── main.dart
 │   ├── screens/
-│   │   ├── addproduct_screen.dart
-│   │   ├── home_screen.dart
-│   │   ├── product_screen.dart
-│   │   ├── profile_screen.dart
-│   │   ├── signin_screen.dart
-│   │   ├── signup_screen.dart
 │   │   ├── splash_screen.dart
 │   │   ├── welcome_screen.dart
-│   ├── widgets/
-│   │   ├── custom_button.dart
-│   │   ├── custom_gap.dart
-│   │   ├── custom_productcard.dart
-│   │   ├── custom_textfield.dart
+│   │   ├── signin_screen.dart
+│   │   ├── signup_screen.dart
+│   │   ├── home_screen.dart
+│   │   ├── search_screen.dart
+│   │   ├── product_screen.dart
+│   │   ├── cart_screen.dart
+│   │   ├── profile_screen.dart
+│   │   └── addproduct_screen.dart
+│   └── widgets/
+│       ├── cart_manager.dart
+│       ├── custom_bottom_navbar.dart
+│       ├── custom_button.dart
+│       ├── custom_gap.dart
+│       ├── custom_productcard.dart
+│       └── custom_textfield.dart
 ├── pubspec.yaml
-├── README.md
+└── README.md
 ```
 
 ---
@@ -61,75 +93,88 @@ SmartShop is a modern, cross-platform e-commerce mobile application built with *
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-- Flutter SDK (version 3.0 or higher)
+- Flutter SDK 3.0+
 - Dart
 - Firebase account
 - Android Studio or VS Code
-- Physical device or emulator for testing
+- Physical device or emulator
 
 ### Installation
 
-1. **Clone the Repository**:
-
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/Dalia-Ramadan/E-Commerce_App.git
+   git clone https://github.com/yourusername/smartshop.git
    cd smartshop
    ```
 
-2. **Install Dependencies**:
-
+2. **Install dependencies**
    ```bash
    flutter pub get
    ```
 
-3. **Set Up Firebase**:
-
-   - Create a Firebase project at Firebase Console.
-   - Add an Android/iOS app to your Firebase project.
-   - Download the `google-services.json` (Android) or `GoogleService-Info.plist` (iOS) and place it in the appropriate directory.
-   - Enable **Firebase Authentication** (Email/Password) and **Firestore** in the Firebase Console.
-
-4. **Add Assets**:
-
-   - Place `splash.png` and `welcome.png` in the `assets/images/` directory.
-   - Update `pubspec.yaml` to include assets:
-
-     ```yaml
-     flutter:
-       assets:
-         - assets/images/splash.png
-         - assets/images/welcome.png
+3. **Set up Firebase**
+   - Create a project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable **Authentication** (Email/Password)
+   - Enable **Firestore Database**
+   - Run FlutterFire CLI to generate `firebase_options.dart`:
+     ```bash
+     flutterfire configure
      ```
 
-5. **Run the App**:
+4. **Set Firestore Rules**
+   ```js
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId} {
+         allow read, write: if request.auth != null
+                            && request.auth.uid == userId;
+       }
+       match /products/{productId} {
+         allow read, write: if request.auth != null;
+       }
+     }
+   }
+   ```
 
+5. **Add assets** — place images in `assets/images/` and update `pubspec.yaml`:
+   ```yaml
+   flutter:
+     assets:
+       - assets/images/splash.png
+       - assets/images/welcome.png
+   ```
+
+6. **Run the app**
    ```bash
    flutter run
    ```
 
 ---
 
-## 📱 Usage
+## 📱 App Flow
 
-1. **Splash Screen**: Displays the app logo for 3 seconds on startup.
-2. **Welcome Screen**: Allows users to navigate to sign-up or sign-in.
-3. **Sign Up / Sign In**: Register with name, email, and password, or log in with existing credentials.
-4. **Home Screen**: Browse products in a grid view, sort by name or price, and access profile or add product screens via the drawer or floating action button.
-5. **Add Product**: Upload products with name, price, description, and compressed image.
-6. **Product Screen**: View detailed product information and add items to the cart (mock functionality).
-7. **Profile Screen**: View user details and sign out securely.
+```
+Splash Screen (3s)
+      ↓
+Welcome Screen
+   ↙       ↘
+Sign Up   Sign In
+      ↓
+Home Screen  ──→  Search Screen
+     ↓                  ↓
+Product Screen      Product Screen
+     ↓
+  Cart Screen
+     ↓
+Profile Screen
+```
 
 ---
 
-## 👩‍💻 Developed By
-
-**Dalia Ramadan**
-
-- LinkedIn: (Dalia Ramadan Ahmed)[https://www.linkedin.com/in/dalia-ramadan-ahmed-435912252/]
+## 👩‍💻 Developed by Dalia Ramadan
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Dalia%20Ramadan-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/dalia-ramadan-ahmed-435912252/)
 
 ---
 
-Happy Shopping with **SmartShop**! 🛍️
-
-
+> Happy Shopping with **SmartShop**! 🛍️
