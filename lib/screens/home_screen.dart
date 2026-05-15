@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentNavIndex = 0;
+  final int _currentNavIndex = 0;
 
   Stream<QuerySnapshot> getProductsStream() {
     return FirebaseFirestore.instance
