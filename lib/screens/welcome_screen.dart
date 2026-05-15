@@ -29,7 +29,7 @@ class WelcomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Center(
                   child: Text(
-                    'Welcome to "Smart Shop"\n"Discover trends made just for you."',
+                    'Welcome to "Trendify Store"\n"Discover trends made just for you."',
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 20,

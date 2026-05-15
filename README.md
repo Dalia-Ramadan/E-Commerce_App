@@ -1,7 +1,7 @@
-# SmartShop - E-Commerce Flutter App
+# Trendify Store - E-Commerce Flutter App
 
 ## 📖 Overview
-SmartShop is a modern e-commerce application built with **Flutter** and **Firebase**. It allows users to browse and search products, manage their cart, upload new products, and customize their profile — all with a clean and intuitive UI.
+Trendify Store is a modern e-commerce application built with **Flutter** and **Firebase**. It allows users to browse and search products, manage their cart, upload new products, and customize their profile — all with a clean and intuitive UI.
 
 ---
 
@@ -58,7 +58,7 @@ SmartShop is a modern e-commerce application built with **Flutter** and **Fireba
 ## 📂 Project Structure
 
 ```
-smartshop/
+Trendify Store/
 ├── assets/
 │   └── images/
 │       ├── splash.png

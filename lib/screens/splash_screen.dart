@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           const SizedBox(height: 30),
           const Text(
-            'Smart Shop',
+            'Trendify Store',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,

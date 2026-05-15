@@ -122,8 +122,8 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               currentUser?.email != null
-                  ? 'Email: ${currentUser!.email}\n\nPassionate about fashion and always exploring the latest trends with ShopSmart.'
-                  : 'Passionate about fashion and always exploring the latest trends with ShopSmart.',
+                  ? 'Email: ${currentUser!.email}\n\nPassionate about fashion and always exploring the latest trends with Trendify Store.'
+                  : 'Passionate about fashion and always exploring the latest trends with Trendify Store.',
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.redAccent,
